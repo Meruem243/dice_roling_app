@@ -47,12 +47,7 @@ class _DicePageState extends State<DicePage> {
               padding: const EdgeInsets.all(8.0),
               child: TextButton(
                 onPressed: () {
-                  setState(() {
-                    leftDiceNum = Random().nextInt(6) + 1;
-                    rightDiceNum = Random().nextInt(6) + 1;
-                    // leftDiceNum = 6;
-                    // rightDiceNum = 6;
-                  });
+                  changeDice();
                 },
                 child: Image(
                   image: AssetImage('images/dice$leftDiceNum.png'),
@@ -66,10 +61,7 @@ class _DicePageState extends State<DicePage> {
               padding: const EdgeInsets.all(8.0),
               child: TextButton(
                 onPressed: () {
-                  setState(() {
-                    rightDiceNum = Random().nextInt(6) + 1;
-                    leftDiceNum = Random().nextInt(6) + 1;
-                  });
+                  changeDice();
                 },
                 child: Image.asset('images/dice$rightDiceNum.png'),
               ),
@@ -78,5 +70,14 @@ class _DicePageState extends State<DicePage> {
         ],
       ),
     );
+  }
+
+  void changeDice() {
+    return setState(() {
+      leftDiceNum = Random().nextInt(6) + 1;
+      rightDiceNum = Random().nextInt(6) + 1;
+      // leftDiceNum = 6;
+      // rightDiceNum = 6;
+    });
   }
 }
